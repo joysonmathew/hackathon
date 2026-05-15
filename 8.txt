@@ -1,0 +1,102 @@
+1
+FROM python
+WORKDIR /app
+COPY . /app
+CMD ["python", "sample.py"]
+
+docker build -t test_1
+docker run --name cont1 test_1
+docker image tag paste kruthishastrymd/test_1
+docker push kruthishastrymd/test_1:latest
+
+2
+create Devops-Docker folder
+create repository DcockerProg
+clone
+Kruthi Shastry@LAPTOP-H3Q40EB2 MINGW64 ~
+$ cd D:
+
+Kruthi Shastry@LAPTOP-H3Q40EB2 MINGW64 /d
+$ cd Devops-Docker
+
+Kruthi Shastry@LAPTOP-H3Q40EB2 MINGW64 /d/Devops-Docker
+$ git clone "https://github.com/Kruthi-Shastry/dockerprog.git"
+Cloning into 'dockerprog'...
+warning: You appear to have cloned an empty repository.
+
+vs code 
+FROM python
+WORKDIR /app
+COPY . /app
+CMD ["python", "sample.py"]
+
+in termi
+cd dockerprog
+git add .
+git commit -m "fm"
+git push -u origin main
+docker build -t test_3 .
+docker run --name cont3 test_3 
+docker tag d9edf0fc0169 kruthishastrymd/test_3
+docker push kruthishastrymd/test_3:latest 
+
+jenkins
+cloudbees docker custom build env
+docker
+docker pipeline
+docker compose build step
+
+new item Doc2
+Pipeline
+script
+pipeline
+{
+    agent any
+    environment
+    {
+        docker_image = "kruthishastrymd/test_3"
+        registry = "kruthishastrymd/test_3"
+        registryCredential = "jenkins_docker-tockens"
+    }
+    stages{
+        stage("Checkout"){
+            steps{
+                git branch: 'main', url: 'https://github.com/Kruthi-Shastry/dockerprog.git'
+            }
+        }
+        stage('Build Docker Image')
+        {
+            steps{
+                script{
+                    dockerImage = docker.build("kruthishastrymd/test_3")
+                }
+            }
+        }
+    }
+}
+then build
+
+3
+slack
+vvce
+create channel
+devops_upd
+jenkins
+plugins
+slack notification
+system
+slack
+workspace:vvcefroup
+my.slack.com/services/new/jenkins-ci
+select channel
+add jenkins
+copy secret text
+credentials add secret text
+default channel
+new item
+jenkins freestyle project
+build step execute win
+java --version
+add post build action
+slack notifications
+build
